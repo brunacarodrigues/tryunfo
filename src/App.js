@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 import Card from './components/Card';
 import Form from './components/Form';
 
@@ -14,6 +15,7 @@ class App extends Component {
     cardTrunfo: false,
     // hasTrunfo: false,
     isSaveButtonDisabled: true,
+    saveCards: [],
   };
 
   formValidate = () => {
@@ -63,6 +65,31 @@ class App extends Component {
     }, this.formValidate);
   };
 
+  onSaveButtonClick = () => {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      saveCards,
+    } = this.state;
+    saveCards.push({
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    });
+    this.setState({ saveCards });
+  };
+
   render() {
     const {
       cardName,
@@ -91,6 +118,7 @@ class App extends Component {
             cardTrunfo={ cardTrunfo }
             onInputChange={ this.onInputChange }
             isSaveButtonDisabled={ isSaveButtonDisabled }
+            onSaveButtonClick={ this.onSaveButtonClick }
           />
           <h2>Carta: </h2>
           <Card

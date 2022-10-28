@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class Card extends Component {
   render() {
     const {
-      // cardID,
       cardName,
       cardDescription,
       cardAttr1,
@@ -15,10 +14,10 @@ class Card extends Component {
       cardTrunfo,
     } = this.props;
     return (
-      <>
-        <p data-testid="name-card">
+      <section>
+        <h2 data-testid="name-card">
           {cardName}
-        </p>
+        </h2>
         <img
           data-testid="image-card"
           src={ cardImage }
@@ -27,22 +26,16 @@ class Card extends Component {
         <p data-testid="description-card">
           { cardDescription }
         </p>
-        <p data-testid="attr1-card">
-          { cardAttr1 }
-        </p>
-        <p data-testid="attr2-card">
-          { cardAttr2 }
-        </p>
-        <p data-testid="attr3-card">
-          { cardAttr3 }
-        </p>
-        <p data-testid="rare-card">
-          { cardRare }
-        </p>
-        <span>
+        <div>
+          <ul>
+            <li data-testid="attr1-card">{ cardAttr1 }</li>
+            <li data-testid="attr2-card">{ cardAttr2 }</li>
+            <li data-testid="attr3-card">{ cardAttr3 }</li>
+          </ul>
+          <span data-testid="rare-card">{ cardRare }</span>
           { cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p> }
-        </span>
-      </>
+        </div>
+      </section>
     );
   }
 }
@@ -50,18 +43,9 @@ class Card extends Component {
 Card.propTypes = {
   cardName: PropTypes.string,
   cardDescription: PropTypes.string,
-  cardAttr1: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  cardAttr2: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  cardAttr3: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,

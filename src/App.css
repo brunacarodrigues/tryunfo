@@ -3,8 +3,8 @@ body {
 }
 
 form {
-  background-color: antiquewhite;
   align-items: center;
+  background-color: antiquewhite;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,20 +14,17 @@ form {
 
 section {
   display: none;
+  text-align: center;
 }
 
-label{
-  margin: 3px;
-  padding: 3px;
-  text-align: left;
+label {
   align-items: initial;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-section {
-  text-align: center;
+  margin: 3px;
+  padding: 3px;
+  text-align: left;
 }
 
 h1 {

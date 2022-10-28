@@ -65,7 +65,8 @@ class App extends Component {
     }, this.formValidate);
   };
 
-  onSaveButtonClick = () => {
+  onSaveButtonClick = (event) => {
+    event.preventDefault();
     const {
       cardName,
       cardDescription,
@@ -87,7 +88,20 @@ class App extends Component {
       cardRare,
       cardTrunfo,
     });
-    this.setState({ saveCards });
+    this.setState({
+      saveCards,
+    }, () => {
+      this.setState({
+        cardName: '',
+        cardDescription: '',
+        cardImage: '',
+        cardAttr1: '0',
+        cardAttr2: '0',
+        cardAttr3: '0',
+        cardRare: 'normal',
+        cardTrunfo: false,
+      });
+    });
   };
 
   render() {

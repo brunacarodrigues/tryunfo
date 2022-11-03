@@ -9,9 +9,9 @@ form {
   flex-direction: column;
   justify-content: center;
   margin: 10rem;
-  padding: 2rem;
-  margin-top: 0;
   margin-bottom: 5px;
+  margin-top: 0;
+  padding: 2rem;
 }
 
 section {
@@ -40,7 +40,6 @@ h2 {
   text-align: center;
   padding-top: 50px;
 }
-
 
 h3 {
   color: antiquewhite;

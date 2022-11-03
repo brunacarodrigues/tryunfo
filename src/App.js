@@ -10,7 +10,7 @@ class App extends Component {
     cardAttr1: '0',
     cardAttr2: '0',
     cardAttr3: '0',
-    cardImage: '0',
+    cardImage: '',
     cardRare: 'normal',
     cardTrunfo: false,
     hasTrunfo: false,
@@ -78,6 +78,7 @@ class App extends Component {
       cardTrunfo,
       hasTrunfo,
     } = this.state;
+
     const saveNewCard = {
       cardName,
       cardDescription,
@@ -116,11 +117,13 @@ class App extends Component {
       cardTrunfo,
       isSaveButtonDisabled,
       hasTrunfo,
+      saveCards,
     } = this.state;
     return (
       <main>
         <div>
-          <h1>ADICIONE NOVA CARTA</h1>
+          <h1>Tryunfo</h1>
+          <h2>ADICIONE NOVA CARTA</h2>
           <Form
             cardName={ cardName }
             cardDescription={ cardDescription }
@@ -135,17 +138,26 @@ class App extends Component {
             onSaveButtonClick={ this.onSaveButtonClick }
             hasTrunfo={ hasTrunfo }
           />
-          <h2>Carta: </h2>
-          <Card
-            cardName={ cardName }
-            cardDescription={ cardDescription }
-            cardAttr1={ cardAttr1 }
-            cardAttr2={ cardAttr2 }
-            cardAttr3={ cardAttr3 }
-            cardImage={ cardImage }
-            cardRare={ cardRare }
-            cardTrunfo={ cardTrunfo }
-          />
+          <div className="preview-card">
+            <h3>Preview da Carta</h3>
+            <Card { ...this.state } />
+          </div>
+          <div>
+            {saveCards.map((saveNewCard) => (
+              <div key={ saveNewCard.cardName }>
+                <Card
+                  cardName={ saveNewCard.cardName }
+                  cardDescription={ saveNewCard.cardDescription }
+                  cardAttr1={ saveNewCard.cardAttr1 }
+                  cardAttr2={ saveNewCard.cardAttr2 }
+                  cardAttr3={ saveNewCard.cardAttr3 }
+                  cardImage={ saveNewCard.cardImage }
+                  cardRare={ saveNewCard.cardRare }
+                  cardTrunfo={ saveNewCard.cardTrunfo }
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </main>
     );

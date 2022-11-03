@@ -10,6 +10,8 @@ form {
   justify-content: center;
   margin: 10rem;
   padding: 2rem;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 section {
@@ -30,5 +32,17 @@ label {
 h1 {
   color: white;
   margin-top: 100px;
+  text-align: center;
+}
+
+h2 {
+  color: antiquewhite;
+  text-align: center;
+  padding-top: 50px;
+}
+
+
+h3 {
+  color: antiquewhite;
   text-align: center;
 }
